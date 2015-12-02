@@ -27,3 +27,13 @@ CREATE TABLE `bill` (
   KEY `fk_perCust_idx` (`userId`),
   CONSTRAINT `fk_perCust` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
+
+CREATE TABLE `orders` (
+  `serviceId` int(11) NOT NULL,
+  `billId` int(11) NOT NULL,
+  PRIMARY KEY (`serviceId`,`billId`),
+  KEY `fk_perProd_idx` (`serviceId`),
+  KEY `fk_perOrder_idx` (`billId`),
+  CONSTRAINT `fk_perOrder` FOREIGN KEY (`billId`) REFERENCES `bill` (`billId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_perProd` FOREIGN KEY (`serviceId`) REFERENCES `core.service` (`serviceId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);

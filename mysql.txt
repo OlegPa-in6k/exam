@@ -10,7 +10,7 @@ CREATE TABLE `serviceType` (
   PRIMARY KEY (`serviceTypeId`)
 );
 
-CREATE TABLE `core.service` (
+CREATE TABLE `service` (
   `serviceId` int(11) NOT NULL AUTO_INCREMENT,
   `serviceTitle` varchar(20) NOT NULL,
   `price` int(10) NOT NULL,
