@@ -10,7 +10,7 @@ CREATE TABLE `serviceType` (
   PRIMARY KEY (`serviceTypeId`)
 );
 
-CREATE TABLE `service` (
+CREATE TABLE `core.service` (
   `serviceId` int(11) NOT NULL AUTO_INCREMENT,
   `serviceTitle` varchar(20) NOT NULL,
   `price` int(10) NOT NULL,
@@ -35,5 +35,5 @@ CREATE TABLE `orders` (
   KEY `fk_perProd_idx` (`serviceId`),
   KEY `fk_perOrder_idx` (`billId`),
   CONSTRAINT `fk_perOrder` FOREIGN KEY (`billId`) REFERENCES `bill` (`billId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_perProd` FOREIGN KEY (`serviceId`) REFERENCES `service` (`serviceId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_perProd` FOREIGN KEY (`serviceId`) REFERENCES `core.service` (`serviceId`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );

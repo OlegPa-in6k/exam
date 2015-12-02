@@ -6,8 +6,8 @@
 // * Created by employee on 12/2/15.
 // */
 //@Entity
-//@Table(name = "MainService")
-//public class MainService {
+//@Table(name = "UserService")
+//public class UserService {
 //
 //    @Id
 //    @GeneratedValue
@@ -32,11 +32,11 @@
 //    }
 //
 //
-//    public MainService() {
+//    public UserService() {
 //    }
 //
 //
-//    public MainService(int serviceId, String serviceTitle, int price) {
+//    public UserService(int serviceId, String serviceTitle, int price) {
 //        this.serviceId = serviceId;
 //        this.serviceTitle = serviceTitle;
 //        this.price = price;

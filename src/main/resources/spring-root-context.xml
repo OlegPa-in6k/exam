@@ -47,6 +47,9 @@
     <bean id="daoBill" class="persistence.BillDaoImpl"/>
     <bean id="bill" class="core.entity.Bill"/>
     <bean id="user" class="core.entity.User"/>
+    <bean id="userService" class="core.service.UserService">
+        <constructor-arg ref="daoUser"/>
+    </bean>
 
 
 

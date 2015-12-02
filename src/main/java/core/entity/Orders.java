@@ -14,7 +14,7 @@
 //
 //    @OneToOne
 //    @JoinColumn(name = "serviceTypeId")
-//    private MainService service;
+//    private UserService core.service;
 //
 //    public Order() { }
 //
@@ -26,12 +26,12 @@
 //        this.order = order;
 //    }
 //
-//    public MainService getService() {
-//        return service;
+//    public UserService getService() {
+//        return core.service;
 //    }
 //
-//    public void setService(MainService service) {
-//        this.service = service;
+//    public void setService(UserService core.service) {
+//        this.core.service = core.service;
 //    }
 //
 //

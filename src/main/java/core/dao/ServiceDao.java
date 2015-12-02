@@ -1,12 +1,12 @@
 package core.dao;
 
-//import core.entity.MainService;
+//import core.entity.UserService;
 
 /**
  * Created by employee on 12/2/15.
  */
 //public interface ServiceDao {
 //
-//    MainService getServiceByName(String serviceName);
+//    UserService getServiceByName(String serviceName);
 //
 //}
