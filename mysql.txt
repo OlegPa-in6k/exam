@@ -21,20 +21,19 @@ CREATE TABLE `service` (
 );
 
 CREATE TABLE `bill` (
-  `orderId` int(11) NOT NULL AUTO_INCREMENT,
+  `billId` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
-  
-  PRIMARY KEY (`orderId`),
+  PRIMARY KEY (`billId`),
   KEY `fk_perCust_idx` (`userId`),
   CONSTRAINT `fk_perCust` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-); 
+);
 
-CREATE TABLE `item` (
+CREATE TABLE `orders` (
   `serviceId` int(11) NOT NULL,
-  `orderId` int(11) NOT NULL,
-  PRIMARY KEY (`orderId`,`serviceId`),
+  `billId` int(11) NOT NULL,
+  PRIMARY KEY (`serviceId`,`billId`),
   KEY `fk_perProd_idx` (`serviceId`),
-  KEY `fk_perOrder_idx` (`orderId`),
-  CONSTRAINT `fk_perOrder` FOREIGN KEY (`orderId`) REFERENCES `orderId` (`orderId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  KEY `fk_perOrder_idx` (`billId`),
+  CONSTRAINT `fk_perOrder` FOREIGN KEY (`billId`) REFERENCES `bill` (`billId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_perProd` FOREIGN KEY (`serviceId`) REFERENCES `service` (`serviceId`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
