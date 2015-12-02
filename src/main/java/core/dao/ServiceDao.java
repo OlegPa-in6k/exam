@@ -1,12 +1,17 @@
 package core.dao;
 
-//import core.entity.UserService;
+
 
 /**
  * Created by employee on 12/2/15.
  */
-//public interface ServiceDao {
-//
-//    UserService getServiceByName(String serviceName);
-//
-//}
+
+import core.service.UserService;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ServiceDao {
+
+    UserService getServiceByName(String serviceName);
+
+}

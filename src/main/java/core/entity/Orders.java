@@ -1,41 +1,42 @@
-//package core.entity;
-//
-//import javax.persistence.*;
-//
-///**
-// * Created by employee on 12/2/15.
-// */
-//public class Orders {
-//
-//    @Id
-//    @GeneratedValue
-//    @Column(name = "orderId")
-//    private Order order;
-//
-//    @OneToOne
-//    @JoinColumn(name = "serviceTypeId")
-//    private UserService core.service;
-//
-//    public Order() { }
-//
-//    public Order getOrder() {
-//        return order;
-//    }
-//
-//    public void setOrder(Order order) {
-//        this.order = order;
-//    }
-//
-//    public UserService getService() {
-//        return core.service;
-//    }
-//
-//    public void setService(UserService core.service) {
-//        this.core.service = core.service;
-//    }
-//
-//
-//
-//
-//
-//}
+package core.entity;
+
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
+
+/**
+ * Created by employee on 12/2/15.
+ */
+
+@Entity
+@Table(name = "orders")
+public class Orders implements Serializable{
+
+    @ManyToOne
+    @JoinColumn(name = "serviceId")
+    private Service service;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "billId")
+    @EmbeddedId
+    private Bill bill;
+
+    public Bill getBill() {
+        return bill;
+    }
+
+    public void setBill(Bill bill) {
+        this.bill = bill;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
+    }
+
+
+}

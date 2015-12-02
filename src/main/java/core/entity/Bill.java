@@ -1,6 +1,7 @@
 package core.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by employee on 12/2/15.
@@ -9,37 +10,37 @@ import javax.persistence.*;
 @Table(name ="bill")
 public class Bill {
 
+
     @Id
     @GeneratedValue
     @Column(name = "billId")
     private int billId;
-    @Column(name = "price")
-    private int price;
+
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
 
 
 
-//    @ManyToOne
-//    @JoinColumn(name = "orderId")
-//    private Order order;
-//
-//    public Bill () {}
-//
-//    public Order getOrder() {
-//        return order;
-//    }
-//
-//    public void setOrder(Order order) {
-//        this.order = order;
-//    }
-//
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+
+
+    public Bill () {}
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public int getBillId() {
+        return billId;
+    }
+
+    public void setBillId(int billId) {
+        this.billId = billId;
+    }
+
+
 }

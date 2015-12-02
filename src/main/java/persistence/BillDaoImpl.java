@@ -20,4 +20,5 @@ public class BillDaoImpl extends BaseDaoImpl<Bill> implements BillDao{
 
         return query.list();
     }
+
 }

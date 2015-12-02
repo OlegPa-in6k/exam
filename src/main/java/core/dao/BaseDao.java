@@ -1,10 +1,14 @@
 package core.dao;
 
+import jdk.nashorn.internal.ir.annotations.Reference;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
  * Created by employee on 10/26/15.
  */
+@Repository
 public interface BaseDao<T> {
 
     void create(T entity);
