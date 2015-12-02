@@ -15,7 +15,7 @@
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/testCompany"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/company"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
@@ -45,16 +45,22 @@
 
     <bean id="daoUser" class="persistence.UserDaoImpl"/>
     <bean id="daoBill" class="persistence.BillDaoImpl"/>
+    <bean id="serviceType" class="persistence.ServiceTypeImpl"/>
 
-    <bean id="bill" class="core.entity.Bill"/>
-    <bean id="user" class="core.entity.User"/>
-    <bean id="service" class="core.entity.Service"/>
-    <bean id="serviceType" class="core.entity.ServiceType"/>
-    <bean id="orders" class="core.entity.Orders"/>
+    <!--<bean id="bill" class="core.entity.Bill"/>-->
+    <!--<bean id="user" class="core.entity.User"/>-->
+    <!--<bean id="service" class="core.entity.Service"/>-->
+    <!--<bean id="serviceType" class="core.entity.ServiceType"/>-->
+    <!--<bean id="orders" class="core.entity.Orders"/>-->
 
-    <bean id="userService" class="core.service.UserService">
+    <bean id="adminService" class="core.service.AdminService">
         <constructor-arg ref="daoUser"/>
+        <constructor-arg ref="serviceType"/>
     </bean>
+
+    <!--<bean id="userService" class="core.service.UserService">-->
+        <!--<constructor-arg ref="daoUser"/>-->
+    <!--</bean>-->
 
 
 

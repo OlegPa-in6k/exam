@@ -6,12 +6,17 @@ package core.dao;
  * Created by employee on 12/2/15.
  */
 
-import core.service.UserService;
+import core.entity.Service;
+
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface ServiceDao {
 
-    UserService getServiceByName(String serviceName);
+    Service getServiceByName(String serviceName);
+
+    List<Service> getServiceByPrice(int price);
 
 }

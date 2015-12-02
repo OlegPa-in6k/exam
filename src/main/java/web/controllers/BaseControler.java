@@ -1,6 +1,6 @@
 package web.controllers;
 
-import core.service.UserService;
+import core.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -9,5 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class BaseControler {
 
     @Autowired
-    protected UserService userService;
+    protected AdminService adminService;
+
+//    @Autowired
+//    protected UserService userService;
 }

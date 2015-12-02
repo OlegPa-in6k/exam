@@ -15,4 +15,5 @@ public interface BillDao extends BaseDao<Bill>{
     List getBillsByUserId(int userId);
 
 
+
 }

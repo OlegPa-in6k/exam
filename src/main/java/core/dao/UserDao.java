@@ -11,6 +11,8 @@ public interface UserDao extends BaseDao <User>{
 
     User getUserIdByName(String userName);
 
+
+
 }
 
 
