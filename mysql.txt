@@ -1,0 +1,40 @@
+CREATE TABLE `users` (
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(10) NOT NULL,
+  PRIMARY KEY (`userId`)
+);
+
+CREATE TABLE `serviceType` (
+  `serviceTypeId` int(11) NOT NULL AUTO_INCREMENT,
+  `serviceTypeName` varchar(20) NOT NULL,
+  PRIMARY KEY (`serviceTypeId`)
+);
+
+CREATE TABLE `service` (
+  `serviceId` int(11) NOT NULL AUTO_INCREMENT,
+  `serviceTitle` varchar(20) NOT NULL,
+  `price` int(10) NOT NULL,
+  `serviceTypeId` int(11) NOT NULL,
+  PRIMARY KEY (`serviceId`),
+  KEY `fk_perCategor_idx` (`serviceTypeId`),
+  CONSTRAINT `fk_perCategor` FOREIGN KEY (`serviceTypeId`) REFERENCES `serviceType` (`serviceTypeId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE `bill` (
+  `orderId` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  
+  PRIMARY KEY (`orderId`),
+  KEY `fk_perCust_idx` (`userId`),
+  CONSTRAINT `fk_perCust` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+); 
+
+CREATE TABLE `item` (
+  `serviceId` int(11) NOT NULL,
+  `orderId` int(11) NOT NULL,
+  PRIMARY KEY (`orderId`,`serviceId`),
+  KEY `fk_perProd_idx` (`serviceId`),
+  KEY `fk_perOrder_idx` (`orderId`),
+  CONSTRAINT `fk_perOrder` FOREIGN KEY (`orderId`) REFERENCES `orderId` (`orderId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_perProd` FOREIGN KEY (`serviceId`) REFERENCES `service` (`serviceId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
