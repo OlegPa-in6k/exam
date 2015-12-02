@@ -13,7 +13,7 @@ import java.util.List;
 public class UserController extends BaseControler {
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<User> getCities() {
+    public List<User> getUsers() {
         return adminService.getAllUsers();
     }
 
@@ -28,9 +28,6 @@ public class UserController extends BaseControler {
     public void deleteUser(@PathVariable("userId") int userId ){
         adminService.deleteUser(adminService.getUserById(userId));
     }
-
-
-
 
 
 }

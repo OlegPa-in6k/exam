@@ -20,11 +20,27 @@
             </table>
 
         </div>
+        <div>
+            <table>
+                <tr ng-repeat="type in serviceTypes">
+                    <td>{{type.serviceTypeName}}</td>
+                    <td>
+                        <button type="submit" ng-click="deleteServiceType(type)">Delete ServiceType</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <br>
         <div>
             <form >
                 <input type="text" size = "5" ng-model ="userName" />
                 <button type="submit" ng-click="addUser(userName)">Add User</button>
+            </form>
+        </div>
+        <div>
+            <form >
+                <input type="text" size = "5" ng-model ="serviceTypeName" />
+                <button type="submit" ng-click="addServiceType(serviceTypeName)">Add Service Type</button>
             </form>
         </div>
         <br>

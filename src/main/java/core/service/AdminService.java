@@ -1,5 +1,6 @@
 package core.service;
 
+import core.entity.ServiceType;
 import core.entity.User;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -24,8 +25,6 @@ public class AdminService extends BaseService{
         this.serviceTypeSearch = serviceTypeSearch;
     }
 
-    public AdminService(UserDaoImpl userDao) {
-    }
 
     public List<User> getAllUsers() {
         return userSearch.getAll();
@@ -39,7 +38,6 @@ public class AdminService extends BaseService{
 
     }
 
-
     public void deleteUser (User  user) {
         try{ userSearch.delete(user);
         } catch (DataIntegrityViolationException e){
@@ -51,6 +49,32 @@ public class AdminService extends BaseService{
         return userSearch.read(userId);
     }
 
+    public ServiceType getTypeServiceById(int serviceTypeId){
+        return  serviceTypeSearch.read(serviceTypeId);
+    }
+
+
+    public List<ServiceType> getAllServiceTypes() {
+        return serviceTypeSearch.getAll();
+    }
+
+    public void addServiceType(ServiceType serviceType) {
+        try{  serviceTypeSearch.create(serviceType);
+        } catch (ConstraintViolationException e){
+
+        }
+    }
+
+    public void deleteServiceType(ServiceType serviceType){
+        try{ serviceTypeSearch.delete(serviceType);
+        } catch (DataIntegrityViolationException e){
+
+        }
+    }
+
+    public ServiceType getServiceTypeById(int serviceTypId){
+        return serviceTypeSearch.read(serviceTypId);
+    }
 
 
 

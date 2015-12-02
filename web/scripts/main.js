@@ -7,6 +7,10 @@ myApp.controller('MainController', function ($scope, $http) {
         $scope.users = response.data;
     });
 
+    $http.get("/mvc/serviceTypes").then(function (response){
+        $scope.serviceTypes = response.data;
+    });
+
     $scope.deleteUser = function (user) {
         $http
             .delete("/mvc/users/delete/" + user.userId)
@@ -30,6 +34,38 @@ myApp.controller('MainController', function ($scope, $http) {
                 updateUsers();
             });
     };
+
+    $scope.addServiceType = function(servicetypeName) {
+        $http
+            .post("/mvc/serviceTypes/add", servicetypeName)
+            .then(function (response) {
+                updateServiceTypes();
+            })
+    };
+
+    var updateServiceTypes = function () {
+        $http
+            .get("/mvc/serviceTypes")
+            .then(function (response) {
+                $scope.serviceTypes = response.data;
+            });
+    };
+
+
+    $scope.deleteServiceType = function (type) {
+        $http
+            .delete("/mvc/serviceTypes/delete/" + type.serviceTypeId)
+            .then(function (response) {
+                updateServiceTypes();
+            });
+    };
+
+
+
+
+
+
+
 
 
 

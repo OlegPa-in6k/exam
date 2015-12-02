@@ -1,15 +1,33 @@
 package web.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import core.entity.ServiceType;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by employee on 12/2/15.
  */
 
 @RestController
-@RequestMapping(value = "/services")
+@RequestMapping(value = "/serviceTypes")
 public class ServiceController extends BaseControler{
 
+    @RequestMapping(method = RequestMethod.GET)
+    public List<ServiceType> getServiceTypes() {
+        return adminService.getAllServiceTypes();
+    }
+
+    @RequestMapping(value = "/add" ,method = RequestMethod.POST)
+    public void addServiceType(@RequestBody String  serviceTypeName ) {
+        ServiceType serviceType = new ServiceType();
+        serviceType.setServiceTypeName(serviceTypeName);
+        adminService.addServiceType(serviceType);
+    }
+
+    @RequestMapping(value = "/delete/{serviceTypeId}", method = RequestMethod.DELETE)
+    public void deleteServiceType(@PathVariable("serviceTypeId") int serviceTypeId ){
+        adminService.deleteServiceType(adminService.getServiceTypeById(serviceTypeId));
+    }
 
 }
