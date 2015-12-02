@@ -9,15 +9,15 @@ import javax.persistence.*;
 @Table(name ="bill")
 public class Bill {
 
-//    @Id
-//    @GeneratedValue
-//    @Column(name = "billId")
-//    private int billId;
-//    @Column(name = "price")
-//    private int price;
-//    @ManyToOne
-//    @JoinColumn(name = "userId")
-//    private User user;
+    @Id
+    @GeneratedValue
+    @Column(name = "billId")
+    private int billId;
+    @Column(name = "price")
+    private int price;
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 
 
 

@@ -45,10 +45,10 @@
 
     <bean id="daoUser" class="persistence.UserDaoImpl"/>
     <bean id="daoBill" class="persistence.BillDaoImpl"/>
+    <bean id="bill" class="core.entity.Bill"/>
+    <bean id="user" class="core.entity.User"/>
 
-    <bean id="main" class="core.service.MainService">
-        <constructor-arg ref="daoUser"/>
-    </bean>
+
 
 
 

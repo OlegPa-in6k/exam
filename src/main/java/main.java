@@ -10,11 +10,11 @@ import persistence.UserDaoImpl;
  */
 public class main {
 
-    public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                new String[]{"spring-root-context.xml"}, true);
-        MainService asd = context.getBean(MainService.class);
-        asd.getAllUsers();
-    }
+//    public static void main(String[] args) {
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+//                new String[]{"spring-root-context.xml"}, true);
+//        MainService asd = context.getBean(MainService.class);
+//        asd.getAllUsers();
+//    }
 
 }

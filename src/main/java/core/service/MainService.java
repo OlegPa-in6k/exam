@@ -8,16 +8,16 @@ import persistence.UserDaoImpl;
  */
 public class MainService {
 
-    public UserDaoImpl userSearch;
-
-    public MainService(UserDaoImpl userSearch) {
-        this.userSearch = userSearch;
-    }
-
-    public void getAllUsers (){
-        for(User user: userSearch.getAll()){
-            System.out.println(user.getUserName());
-        }
-    }
+//    public UserDaoImpl userSearch;
+//
+//    public MainService(UserDaoImpl userSearch) {
+//        this.userSearch = userSearch;
+//    }
+//
+//    public void getAllUsers (){
+//        for(User user: userSearch.getAll()){
+//            System.out.println(user.getUserName());
+//        }
+//    }
 
 }
