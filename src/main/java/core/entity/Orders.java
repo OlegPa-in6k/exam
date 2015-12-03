@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "orders")
-public class Orders implements Serializable{
+public class Orders implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "serviceId")

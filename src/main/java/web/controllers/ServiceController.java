@@ -13,16 +13,16 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/services")
-public class ServiceController extends BaseControler{
+public class ServiceController extends BaseControler {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Service> getServices() {
-        return adminService.getAllServices();
+        return userService.getAllServices();
     }
 
-    @RequestMapping(value="/{serviceTypeId}", method = RequestMethod.GET)
-    public List<Service> getServicesBytype(@PathVariable("serviceTypeId") int serviceTypeId ) {
-        return adminService.getServicesByType(serviceTypeId);
+    @RequestMapping(value = "/byType/{serviceTypeId}", method = RequestMethod.GET)
+    public List<Service> getServicesBytype(@PathVariable("serviceTypeId") int serviceTypeId) {
+        return userService.getServicesByType(serviceTypeId);
     }
 }
 

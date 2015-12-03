@@ -12,14 +12,14 @@ import java.util.List;
 public class OrdersDaoImpl extends BaseDaoImpl<Orders> implements OrdersDao {
     @Override
     public List<Orders> getOrdersByBillId(int billId) {
-        Query query = startSession().createQuery("From orders Where billId Like :billId");
+        Query query = startSession().createQuery("From Orders Where billId Like :billId");
         query.setParameter("billId", billId);
         return (List<Orders>) query.uniqueResult();
     }
 
     @Override
     public List<Orders> getOrdersByServiceId(int serviceId) {
-        Query query = startSession().createQuery("From orders Where serviceId Like :serviceId");
+        Query query = startSession().createQuery("From Orders Where serviceId Like :serviceId");
         query.setParameter("serviceId", serviceId);
         return (List<Orders>) query.uniqueResult();
     }

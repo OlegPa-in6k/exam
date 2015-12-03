@@ -7,7 +7,7 @@ import java.util.List;
  * Created by employee on 12/2/15.
  */
 @Entity
-@Table(name ="bill")
+@Table(name = "bill")
 public class Bill {
 
 
@@ -21,10 +21,8 @@ public class Bill {
     private User user;
 
 
-
-
-
-    public Bill () {}
+    public Bill() {
+    }
 
     public User getUser() {
         return user;

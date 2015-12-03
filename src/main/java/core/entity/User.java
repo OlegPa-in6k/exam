@@ -1,7 +1,6 @@
 package core.entity;
 
 
-
 import javax.persistence.*;
 
 /**
@@ -21,7 +20,8 @@ public class User {
     private String userName;
 
 
-    public User() {}
+    public User() {
+    }
 
     public User(int userId, String userName) {
         this.userId = userId;

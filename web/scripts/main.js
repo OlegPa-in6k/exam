@@ -11,7 +11,7 @@ myApp.controller('MainController', function ($scope, $http) {
         $scope.services = response.data;
     });
 
-    $http.get("/mvc/serviceTypes").then(function (response){
+    $http.get("/mvc/serviceTypes").then(function (response) {
         $scope.serviceTypes = response.data;
     });
 
@@ -31,7 +31,7 @@ myApp.controller('MainController', function ($scope, $http) {
             });
     };
 
-    $scope.addUser = function(userName) {
+    $scope.addUser = function (userName) {
         $http
             .post("/mvc/users/add", userName)
             .then(function (response) {
@@ -39,7 +39,7 @@ myApp.controller('MainController', function ($scope, $http) {
             });
     };
 
-    $scope.addServiceType = function(servicetypeName) {
+    $scope.addServiceType = function (servicetypeName) {
         $http
             .post("/mvc/serviceTypes/add", servicetypeName)
             .then(function (response) {
@@ -64,12 +64,14 @@ myApp.controller('MainController', function ($scope, $http) {
             });
     };
 
-    $scope.showServiceTypes = function () {
+    $scope.showServiceTypes = function (user) {
+
+        //showUserBill(user.userId);
         $scope.state = !$scope.state;
 
     };
 
-    $scope.showAllServices = function() {
+    $scope.showAllServices = function () {
         $http
             .get("/mvc/services")
             .then(function (response) {
@@ -78,17 +80,30 @@ myApp.controller('MainController', function ($scope, $http) {
     };
 
     var updateServices = function (type) {
+
         $http
-            .get("/mvc/services/" + +type.serviceTypeId)
+            .get("/mvc/services/byType/" + type.serviceTypeId)
             .then(function (response) {
                 $scope.services1 = response.data;
             });
     };
 
-    $scope.showServices = function () {
-        updateServices();
+    $scope.showServices = function (type) {
+        updateServices(type);
         $scope.state1 = !$scope.state1;
 
     };
+
+    var showUserBill = function (userId) {
+        console.log(userId);
+        $scope.showUserServicetypes = function (userId) {
+            $http
+                .get("/mvc/serviceTypes/" + userId)
+                .then(function (response) {
+                    $scope.servTypes = response.data;
+                    console.log(servTypes);
+                });
+        }
+    }
 
 });

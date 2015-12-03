@@ -10,10 +10,9 @@ import java.util.List;
  * Created by employee on 12/2/15.
  */
 @Repository
-public interface BillDao extends BaseDao<Bill>{
+public interface BillDao extends BaseDao<Bill> {
 
     List getBillsByUserId(int userId);
-
 
 
 }

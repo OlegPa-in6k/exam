@@ -92,7 +92,9 @@ public class UserService extends BaseService {
         return serviceSearch.getServicesByType(serviceTypeId);
     }
 
-    public
+    public List<ServiceType> getUserServiceTypes (int userId){
+        return serviceTypeSearch.getUserServiceTypes(userId);
+    }
 
 
 }

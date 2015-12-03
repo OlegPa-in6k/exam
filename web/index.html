@@ -13,26 +13,34 @@
     <div ng-controller="MainController">
 
         <div class="col-sm-4 col-lg-2 col-lg-offset-4">
+
             <table class="table table-striped">
                 <tr ng-repeat="user in users">
                     <td>{{user.userName}}</td>
+                    <td> summary price</td>
                     <td>
-                        <button  class ="btn"  ng-hide="userId" type="submit" ng-click="showServiceTypes()">Show Bill</button>
-                        <button  class ="btn"  ng-show="userId" type="submit" ng-click="showServiceTypes()">Hide Bill</button>
+                        <button class="btn" ng-hide="userId" type="submit" ng-click="showServiceTypes(user)">Show Bill
+                        </button>
+                        <button class="btn" ng-show="userId" type="submit" ng-click="showServiceTypes(user)">Hide Bill
+                        </button>
                     </td>
                 </tr>
             </table>
         </div>
 
 
-        <div ng-show="state" class="col-sm-4 col-lg-4" >
+        <div ng-show="state" class="col-sm-4 col-lg-4">
             <table class="table table-striped">
                 <tr ng-repeat="type in serviceTypes">
-                    <td >{{type.serviceTypeName}}</td>
-                    <td>price</td>
+                    <td>{{type.serviceTypeName}}</td>
+                    <td>price ?</td>
                     <td>
-                        <button  class ="btn" ng-hide="serviceState" type="submit" ng-click="showServices(type)">Show detail</button>
-                        <button  class ="btn" ng-show="serviceState" type="submit" ng-click="showServices(type)">Show detail</button>
+                        <button class="btn" ng-hide="serviceState" type="submit" ng-click="showServices(type)">Show
+                            detail
+                        </button>
+                        <button class="btn" ng-show="serviceState" type="submit" ng-click="showServices(type)">Show
+                            detail
+                        </button>
                     </td>
                 </tr>
             </table>
@@ -43,7 +51,7 @@
                 <tr ng-repeat="service in services1">
                     <td>{{service.serviceTitle}}</td>
                     <td>{{service.price}}</td>
-                 </tr>
+                </tr>
             </table>
         </div>
     </div>

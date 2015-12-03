@@ -14,19 +14,19 @@ public class UserController extends BaseControler {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<User> getUsers() {
-        return adminService.getAllUsers();
+        return userService.getAllUsers();
     }
 
-    @RequestMapping(value = "/add" ,method = RequestMethod.POST)
-    public void addUser(@RequestBody String  userName ) {
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public void addUser(@RequestBody String userName) {
         User user = new User();
         user.setUserName(userName);
-        adminService.addUser(user);
+        userService.addUser(user);
     }
 
     @RequestMapping(value = "/delete/{userId}", method = RequestMethod.DELETE)
-    public void deleteUser(@PathVariable("userId") int userId ){
-        adminService.deleteUser(adminService.getUserById(userId));
+    public void deleteUser(@PathVariable("userId") int userId) {
+        userService.deleteUser(userService.getUserById(userId));
     }
 
 

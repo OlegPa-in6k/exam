@@ -18,7 +18,6 @@ import java.util.List;
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
 
-
     @Autowired
     protected SessionFactory sessionFactory;
 
@@ -39,7 +38,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
         return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
-    public Session startSession(){
+    public Session startSession() {
         return sessionFactory.getCurrentSession();
     }
 

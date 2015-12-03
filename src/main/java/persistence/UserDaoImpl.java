@@ -19,4 +19,6 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 //    where ((u.userId=b.userId)
 //    and (o.billId=b.billId)
 //    and (o.serviceId = s.serviceId));
+
+
 }

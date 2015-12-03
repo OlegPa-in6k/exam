@@ -1,7 +1,6 @@
 package core.dao;
 
 
-
 /**
  * Created by employee on 12/2/15.
  */

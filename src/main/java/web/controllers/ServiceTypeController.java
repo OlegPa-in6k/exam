@@ -15,24 +15,28 @@ public class ServiceTypeController extends BaseControler{
 
     @RequestMapping(method = RequestMethod.GET)
     public List<ServiceType> getServiceTypes() {
-        return adminService.getAllServiceTypes();
+        return userService.getAllServiceTypes();
     }
 
     @RequestMapping(value = "/add" ,method = RequestMethod.POST)
     public void addServiceType(@RequestBody String  serviceTypeName ) {
         ServiceType serviceType = new ServiceType();
         serviceType.setServiceTypeName(serviceTypeName);
-        adminService.addServiceType(serviceType);
+        userService.addServiceType(serviceType);
     }
 
     @RequestMapping(value = "/delete/{serviceTypeId}", method = RequestMethod.DELETE)
     public void deleteServiceType(@PathVariable("serviceTypeId") int serviceTypeId ){
-        adminService.deleteServiceType(adminService.getServiceTypeById(serviceTypeId));
+        userService.deleteServiceType(userService.getServiceTypeById(serviceTypeId));
     }
 
-    @RequestMapping(value ="/showById/{serviceTypeId}", method = RequestMethod.GET)
-    public void showServiceTypeById (@PathVariable("serviceTypeId") int serviceTypeId){
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public List<ServiceType> showUserServiceTypes (@PathVariable("userId") int userId) {
+        System.out.println(userService.getUserServiceTypes(userId));
+        return userService.getUserServiceTypes(userId);
 
     }
+
+
 
 }

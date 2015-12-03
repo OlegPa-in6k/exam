@@ -1,8 +1,7 @@
 package web.controllers;
 
-import core.service.AdminService;
+import core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import persistence.ServiceTypeImpl;
 
 /**
  * Created by employee on 12/2/15.
@@ -10,9 +9,8 @@ import persistence.ServiceTypeImpl;
 public class BaseControler {
 
     @Autowired
-    protected AdminService adminService;
+    protected UserService userService;
 
 
-//    @Autowired
-//    protected UserService userService;
+
 }
