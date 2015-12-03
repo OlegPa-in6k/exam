@@ -5,45 +5,48 @@
     <title>Title</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular.min.js"></script>
     <script src="scripts/main.js"></script>
+    <link rel='stylesheet' href='/resources/bootstrap-3.3.5-dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js'>
 </head>
 <body>
 <div ng-app="bill">
     <div ng-controller="MainController">
-        <div>
+
+        <div class="col-sm-4 col-lg-2 col-lg-offset-4">
             <table>
-                <tr ng-repeat="user in users">
+                <tr ng-repeat="user in users track by $index">
                     <td>{{user.userName}}</td>
                     <td>
-                        <button type="submit" ng-click="deleteUser(user)">Delete User</button>
+                        <button  ng-hide="userId" type="submit" ng-click="showServiceTypes()">Show Bill</button>
+                        <button  ng-show="userId" type="submit" ng-click="showServiceTypes()">Hide Bill</button>
                     </td>
                 </tr>
             </table>
-
         </div>
-        <div>
+
+
+        <div ng-show="state" class="col-sm-4 col-lg-4" >
             <table>
                 <tr ng-repeat="type in serviceTypes">
                     <td>{{type.serviceTypeName}}</td>
+                    <td>price</td>
                     <td>
-                        <button type="submit" ng-click="deleteServiceType(type)">Delete ServiceType</button>
+                        <button  ng-hide="userId" type="submit" ng-click="showServices()">Show detail</button>
+                        <button  ng-show="userId" type="submit" ng-click="showServices()">Show detail</button>
                     </td>
                 </tr>
             </table>
         </div>
-        <br>
-        <div>
-            <form >
-                <input type="text" size = "5" ng-model ="userName" />
-                <button type="submit" ng-click="addUser(userName)">Add User</button>
-            </form>
+
+        <div ng-show="serviceState" class="col-sm-4 col-lg-1">
+            <table>
+                <tr ng-repeat="service in services">
+                    <td>{{service}}</td>
+                    <td>{{service}}</td>
+
+                </tr>
+            </table>
         </div>
-        <div>
-            <form >
-                <input type="text" size = "5" ng-model ="serviceTypeName" />
-                <button type="submit" ng-click="addServiceType(serviceTypeName)">Add Service Type</button>
-            </form>
-        </div>
-        <br>
     </div>
 </div>
 </body>

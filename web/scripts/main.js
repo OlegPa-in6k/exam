@@ -60,6 +60,31 @@ myApp.controller('MainController', function ($scope, $http) {
             });
     };
 
+    $scope.showServiceTypes = function () {
+        $scope.state = !$scope.state;
+
+    };
+
+    $scope.showAllServices = function() {
+        $http
+            .get("/mvc/services")
+            .then(function (response) {
+                $scope.services = response.data;
+            });
+    };
+
+    var updateServices = function () {
+        $http
+            .get("/mvc/serviceTypes")
+            .then(function (response) {
+                $scope.serviceTypes = response.data;
+            });
+    };
+
+    $scope.showServices = function () {
+        $scope.serviceState = !$scope.serviceState;
+
+    };
 
 
 

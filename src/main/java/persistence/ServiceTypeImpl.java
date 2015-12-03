@@ -17,4 +17,6 @@ public class ServiceTypeImpl extends BaseDaoImpl<ServiceType> implements Service
         return (ServiceType) query.uniqueResult();
     }
 
+
+
 }

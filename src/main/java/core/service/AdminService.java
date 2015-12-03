@@ -5,6 +5,7 @@ import core.entity.User;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import persistence.ServiceDaoImpl;
 import persistence.ServiceTypeImpl;
 import persistence.UserDaoImpl;
 
@@ -20,9 +21,12 @@ public class AdminService extends BaseService{
 
     public ServiceTypeImpl serviceTypeSearch;
 
-    public AdminService(UserDaoImpl userSearch, ServiceTypeImpl serviceTypeSearch) {
+    public ServiceDaoImpl serviceSearch;
+
+    public AdminService(UserDaoImpl userSearch, ServiceTypeImpl serviceTypeSearch, ServiceDaoImpl serviceSearch) {
         this.userSearch = userSearch;
         this.serviceTypeSearch = serviceTypeSearch;
+        this.serviceSearch = serviceSearch;
     }
 
 
@@ -76,6 +80,9 @@ public class AdminService extends BaseService{
         return serviceTypeSearch.read(serviceTypId);
     }
 
+    public List<core.entity.Service> getAllServices() {
+        return serviceSearch.getAll();
+    }
 
 
 }
