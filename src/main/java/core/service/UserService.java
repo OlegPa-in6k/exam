@@ -15,7 +15,7 @@ import java.util.List;
  * Created by employee on 12/2/15.
  */
 @Service
-public class AdminService extends BaseService{
+public class UserService extends BaseService {
 
     public UserDaoImpl userSearch;
 
@@ -23,7 +23,7 @@ public class AdminService extends BaseService{
 
     public ServiceDaoImpl serviceSearch;
 
-    public AdminService(UserDaoImpl userSearch, ServiceTypeImpl serviceTypeSearch, ServiceDaoImpl serviceSearch) {
+    public UserService(UserDaoImpl userSearch, ServiceTypeImpl serviceTypeSearch, ServiceDaoImpl serviceSearch) {
         this.userSearch = userSearch;
         this.serviceTypeSearch = serviceTypeSearch;
         this.serviceSearch = serviceSearch;
@@ -34,27 +34,29 @@ public class AdminService extends BaseService{
         return userSearch.getAll();
     }
 
-    public void addUser(User user){
-        try{  userSearch.create(user);
-        } catch (ConstraintViolationException e){
+    public void addUser(User user) {
+        try {
+            userSearch.create(user);
+        } catch (ConstraintViolationException e) {
 
         }
 
     }
 
-    public void deleteUser (User  user) {
-        try{ userSearch.delete(user);
-        } catch (DataIntegrityViolationException e){
+    public void deleteUser(User user) {
+        try {
+            userSearch.delete(user);
+        } catch (DataIntegrityViolationException e) {
 
         }
     }
 
-    public User getUserById(int userId){
+    public User getUserById(int userId) {
         return userSearch.read(userId);
     }
 
-    public ServiceType getTypeServiceById(int serviceTypeId){
-        return  serviceTypeSearch.read(serviceTypeId);
+    public ServiceType getTypeServiceById(int serviceTypeId) {
+        return serviceTypeSearch.read(serviceTypeId);
     }
 
 
@@ -63,26 +65,34 @@ public class AdminService extends BaseService{
     }
 
     public void addServiceType(ServiceType serviceType) {
-        try{  serviceTypeSearch.create(serviceType);
-        } catch (ConstraintViolationException e){
+        try {
+            serviceTypeSearch.create(serviceType);
+        } catch (ConstraintViolationException e) {
 
         }
     }
 
-    public void deleteServiceType(ServiceType serviceType){
-        try{ serviceTypeSearch.delete(serviceType);
-        } catch (DataIntegrityViolationException e){
+    public void deleteServiceType(ServiceType serviceType) {
+        try {
+            serviceTypeSearch.delete(serviceType);
+        } catch (DataIntegrityViolationException e) {
 
         }
     }
 
-    public ServiceType getServiceTypeById(int serviceTypId){
+    public ServiceType getServiceTypeById(int serviceTypId) {
         return serviceTypeSearch.read(serviceTypId);
     }
 
     public List<core.entity.Service> getAllServices() {
         return serviceSearch.getAll();
     }
+
+    public List<core.entity.Service> getServicesByType(int serviceTypeId) {
+        return serviceSearch.getServicesByType(serviceTypeId);
+    }
+
+    public
 
 
 }

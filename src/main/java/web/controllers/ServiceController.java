@@ -1,6 +1,7 @@
 package web.controllers;
 
 import core.entity.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,4 +19,10 @@ public class ServiceController extends BaseControler{
     public List<Service> getServices() {
         return adminService.getAllServices();
     }
+
+    @RequestMapping(value="/{serviceTypeId}", method = RequestMethod.GET)
+    public List<Service> getServicesBytype(@PathVariable("serviceTypeId") int serviceTypeId ) {
+        return adminService.getServicesByType(serviceTypeId);
+    }
 }
+

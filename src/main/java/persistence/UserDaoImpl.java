@@ -14,4 +14,9 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
         query.setParameter("userName", userName);
         return (User) query.uniqueResult();
     }
+//    select u.UserName, b.billId, sum(s.price)
+//    from users u, bill b, orders o, service s
+//    where ((u.userId=b.userId)
+//    and (o.billId=b.billId)
+//    and (o.serviceId = s.serviceId));
 }

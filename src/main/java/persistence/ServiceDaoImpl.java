@@ -25,4 +25,10 @@ public class ServiceDaoImpl extends BaseDaoImpl<Service> implements ServiceDao {
 
     }
 
+    public List<Service> getServicesByType(int serviceTypeId) {
+        Query query = startSession().createQuery("From service Where serviceTypeId Like :serviceTypeId");
+        query.setParameter("serviceTypeId", serviceTypeId);
+        return (List<Service>) query.list();
+    }
+
 }

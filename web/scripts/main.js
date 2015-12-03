@@ -7,6 +7,10 @@ myApp.controller('MainController', function ($scope, $http) {
         $scope.users = response.data;
     });
 
+    $http.get("/mvc/services").then(function (response) {
+        $scope.services = response.data;
+    });
+
     $http.get("/mvc/serviceTypes").then(function (response){
         $scope.serviceTypes = response.data;
     });
@@ -73,25 +77,18 @@ myApp.controller('MainController', function ($scope, $http) {
             });
     };
 
-    var updateServices = function () {
+    var updateServices = function (type) {
         $http
-            .get("/mvc/serviceTypes")
+            .get("/mvc/services/" + +type.serviceTypeId)
             .then(function (response) {
-                $scope.serviceTypes = response.data;
+                $scope.services1 = response.data;
             });
     };
 
     $scope.showServices = function () {
-        $scope.serviceState = !$scope.serviceState;
+        updateServices();
+        $scope.state1 = !$scope.state1;
 
     };
-
-
-
-
-
-
-
-
 
 });

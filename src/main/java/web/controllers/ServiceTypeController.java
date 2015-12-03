@@ -30,7 +30,7 @@ public class ServiceTypeController extends BaseControler{
         adminService.deleteServiceType(adminService.getServiceTypeById(serviceTypeId));
     }
 
-    @RequestMapping(value ="/showById/{servicetypeId}", method = RequestMethod.GET)
+    @RequestMapping(value ="/showById/{serviceTypeId}", method = RequestMethod.GET)
     public void showServiceTypeById (@PathVariable("serviceTypeId") int serviceTypeId){
 
     }
